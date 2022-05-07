@@ -45,3 +45,23 @@ main p{
     border-radius: 50px;
 }
 
+
+@media (max-width:770px) {
+    *{
+        font-size: 13px;
+    }
+    main{
+        flex-wrap:wrap-reverse;
+        width: 100vw;
+    }
+    .hero-img{
+        width: 100vw;
+        padding: 1rem;
+        margin:1rem;
+    }
+    .content-left{
+        width: 100vw;
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+}
