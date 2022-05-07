@@ -5,7 +5,7 @@ import landing from "../../Assets/images/landing.svg"
 function HomePage() {
   return (
       <>
-    <main>
+    <header>
         <div class="content-left">
             <h1>Recamp</h1>
             <h2>Make Group Projects Easy</h2>
@@ -19,10 +19,9 @@ function HomePage() {
         </div>
         <div class="content-right">
             <img src={landing} class="hero-img" alt=""/>
-
         </div>
-    </main>
-      
+    </header>   
+     {/*  */}
       </>
   );
 }
