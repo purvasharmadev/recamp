@@ -2,9 +2,16 @@ import './home-page.css';
 
 function HomePage() {
   return (
-    <div>
-      <h2>Hello from home page</h2>
-    </div>
+      <>
+      <div className='flex'>
+          <div>
+              <h2>Hello i am here</h2>
+          </div>
+          <div>
+              <h2>Hello i am here</h2>
+          </div>
+      </div>      
+      </>
   );
 }
 
