@@ -4,3 +4,7 @@
   --GRAY-COLOR: #374151;
   --COLOR-SHADOW:BLACK;
 }
+
+.h-100{
+  height: 80vh;
+}
