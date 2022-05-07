@@ -11,7 +11,7 @@ function Footer() {
 
         </div> */}
         <p className="color-white text-center">
-          Kvideo | Made with React | ©{" "}
+          Recamp | Made with React | ©{" "}
           <a
             href="https://purvasharma.netlify.app/"
             className="link color-white"

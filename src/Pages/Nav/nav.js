@@ -35,8 +35,8 @@ function Nav() {
       <ul className="navbar-list">
         {/* Explore */}
       <li className="nav-item">
-          <Link to="/explore" className="nav-link link">
-          Explore
+          <Link to="/login" className="nav-link link">
+          Login
           </Link>
         </li>
       </ul>

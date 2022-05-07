@@ -1,0 +1,47 @@
+main{
+    margin-top: 2rem;
+    display: flex;
+    max-width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-img{
+    max-width: 41.87rem;
+    height: auto;
+}
+
+.content-left{
+    width: 30%;
+}
+
+main h1{
+    font-size: 3rem;
+    color:var(--PRIMARY-COLOR);
+    text-transform: uppercase;
+    margin-bottom:-1rem;
+}
+
+main h2{
+    font-size: 1.5rem;
+    color:var(--SECONDARY-COLOR);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+main p{
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--SECONDARY-COLOR);
+    line-height:2em ;
+    margin: 1.5rem 0;
+}
+
+.cta{
+    border: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 50px;
+}
+
