@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import {getAuth,GoogleAuthProvider} from "firebase/auth"
+import { getAuth, GoogleAuthProvider } from "firebase/auth";
+import { getFirestore } from "@firebase/firestore";
 
 // What I will need from firebase:
 // 1. Firebase Auth - google auth
@@ -19,7 +20,7 @@ const firebaseConfig = {
   storageBucket: "recamp-a2671.appspot.com",
   messagingSenderId: "427121780405",
   appId: "1:427121780405:web:439b96ee5b7eb633de80fc",
-  measurementId: "G-LQRE145LJN"
+  measurementId: "G-LQRE145LJN",
 };
 
 // Initialize Firebase
@@ -28,4 +29,7 @@ const app = initializeApp(firebaseConfig);
 // getting auth
 export const auth = getAuth(app);
 
-export const provider = new GoogleAuthProvider()
+export const provider = new GoogleAuthProvider();
+
+// getting collection
+export const db = getFirestore(app);

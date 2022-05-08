@@ -37,17 +37,29 @@ function Nav() {
 
       <ul className="navbar-list">
         {/* Explore */}
-        <li className="nav-item">
-          {isLoggedIn ? (
-            <span onClick={signOut} className="nav-link link cursor-pointer">
-              Log Out
-            </span>
-          ) : (
-            <span onClick={signInWithGoogle} className="nav-link link cursor-pointer">
+        {isLoggedIn ? (
+          <>
+            <li className="nav-item">
+              <span onClick={signOut} className="nav-link link cursor-pointer">
+                Log Out
+              </span>
+            </li>
+            <li className="nav-item">
+              <Link to="/dashboard" className="nav-link link cursor-pointer">
+                Dashboard
+              </Link>
+            </li>
+          </>
+        ) : (
+          <li className="nav-item">
+            <span
+              onClick={signInWithGoogle}
+              className="nav-link link cursor-pointer"
+            >
               Log In
             </span>
-          )}
-        </li>
+          </li>
+        )}
       </ul>
     </nav>
   );
