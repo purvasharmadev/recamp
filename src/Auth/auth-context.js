@@ -2,37 +2,46 @@ import { createContext, useContext, useState, useEffect } from "react";
 import { getDataFromLocal } from "../Hooks/useLocalStorage";
 import { auth, provider } from "../firebase-config";
 import { signInWithPopup } from "firebase/auth";
+// firestore
+import { db } from "../firebase-config";
+import { addDoc, collection } from "firebase/firestore";
 
 const AuthContext = createContext();
 
 function AuthProvider({ children }) {
+  const [userName, setUserName] = useState("");
+
   const [isLoggedIn, setIsLoggedIn] = useState(
     getDataFromLocal("isLoggedIn", false)
   );
   const [error, setError] = useState("");
-  const [response,setResponse] = useState("")
-  const [userDetail,setUserDetail] = useState(
-    getDataFromLocal("userData",{
-        name:"",
-        isAnonymous:true,
-        emailVerfied:false,
-        email:""
-        
+  const [response, setResponse] = useState("");
+  const [userDetail, setUserDetail] = useState(
+    getDataFromLocal("userData", {
+      name: "",
+      isAnonymous: true,
+      emailVerfied: false,
+      email: "",
     })
-)
+  );
 
   const signInWithGoogle = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
         setIsLoggedIn(() => true);
-        setResponse("Successfully Logged In!")
+        setResponse("Successfully Logged In!");
         setUserDetail({
-            ...userDetail,name:result.user.displayName,isAnonymous:result.user.isAnonymous,emailVerified:result.user.emailVerfied,email:result.user.email
-        })
+          ...userDetail,
+          name: result.user.displayName,
+          isAnonymous: result.user.isAnonymous,
+          emailVerified: result.user.emailVerfied,
+          email: result.user.email,
+        });
+        setUserName(result.user.displayName);
       })
       .catch((error) => {
-        setError("Something Went Wrong! ",error);
-      })
+        setError("Something Went Wrong! ", error);
+      });
   };
 
   const signOut = () => {
@@ -40,7 +49,7 @@ function AuthProvider({ children }) {
       .signOut()
       .then(() => {
         setIsLoggedIn(() => false);
-        setResponse("Successfully Logged Out!")
+        setResponse("Successfully Logged Out!");
       })
       .catch((error) => {
         setError("Something Went Wrong! ", error);
@@ -49,12 +58,21 @@ function AuthProvider({ children }) {
 
   useEffect(() => {
     localStorage.setItem("isLoggedIn", JSON.stringify(isLoggedIn));
-    localStorage.setItem("userData",JSON.stringify(userDetail))
+    localStorage.setItem("userData", JSON.stringify(userDetail));
   }, [isLoggedIn]);
 
   return (
     <AuthContext.Provider
-      value={{ isLoggedIn, setIsLoggedIn, signInWithGoogle, signOut,error,response,setResponse,userDetail }}
+      value={{
+        isLoggedIn,
+        setIsLoggedIn,
+        signInWithGoogle,
+        signOut,
+        error,
+        response,
+        setResponse,
+        userDetail,
+      }}
     >
       {children}
     </AuthContext.Provider>
