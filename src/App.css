@@ -9,7 +9,31 @@
   height: 80vh;
 }
 
+.h-50{
+  height: 50%;
+}
+
 .cursor-pointer{
   cursor: pointer;
   padding-left: 10px;
+}
+
+.list-item-background{
+  background-color: var(--BACKGROUND-COLOR);
+  padding: 0px;
+  /* margin: 5px; */
+}
+
+.list{
+  padding: 5px;
+  margin: 5px;
+}
+
+
+.p-lr{
+  padding: 0 1rem 0 1rem;
+}
+
+.mr-1{
+  margin-right: 10px;
 }
