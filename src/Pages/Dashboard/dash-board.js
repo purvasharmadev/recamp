@@ -1,9 +1,7 @@
 import "./dash-board.css";
-import { useState } from "react";
 import { useAuth } from "../../Auth/auth-context";
 import { useTodo } from "../../context/todo-context";
-import Todo from "../../Components/Todo/todo";
-import Schedule from "../../Components/Schedule/schedule";
+import Resources from "../../Components/Resources/resources";
 import { TodoList } from "../../Components/Todo/todo-list";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -40,7 +38,7 @@ function DashBoard() {
           </ul>
         </div>
 
-        <Schedule />
+        <Resources />
       </div>
     </div>
   );
