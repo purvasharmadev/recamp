@@ -1,0 +1,72 @@
+  // const [todo, setTodo] = useState([]);
+  // const todoRef = collection(db, "todo");
+  // const [task, setTask] = useState("");
+  // const [notes, setNotes] = useState("");
+  // const [completed, setCompleted] = useState(false);
+
+  // async function updateTodo(id, Task, Notes) {
+  //   console.log(Task, Notes);
+  //   const todoDoc = doc(db, "todo", id);
+  //   const newTodo = { Task: "New changes", Notes: "yes it does!" };
+  //   console.log(newTodo);
+  //   await updateDoc(todoDoc, newTodo);
+  // }
+
+  // async function deleteTodo(id) {
+  //   const todoDoc = doc(db, "todo", id);
+  //   await deleteDoc(todoDoc);
+  // }
+
+  // async function createTodo() {
+  //   const add = await addDoc(todoRef, {
+  //     Task: task,
+  //     Notes: notes,
+  //     completed: completed,
+  //   });
+  //   return add;
+  // }
+
+  // async function getTodo() {
+  //   const res = await getDocs(todoRef);
+  //   setTodo(res.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+  //   console.log("doc id ", doc.id);
+  // }
+
+  // useEffect(() => {
+  //   getTodo();
+  // }, [task, notes]);
+
+        {/* {/* <div>
+        <h3>Add todo</h3>
+        <input
+          onChange={(e) => {
+            setTask(e.target.value);
+            console.log(task);
+          }}
+          placeholder="enter task"
+          type="text"
+        />
+        <textarea
+          onChange={(e) => {
+            setNotes(e.target.value);
+          }}
+          type="text"
+          placeholder="notes"
+        />
+        <button onClick={createTodo}>Add todo</button>
+      </div>
+
+      <h3>Your Todos</h3>
+      {todo.map((item, id) => {
+        return (
+          <>
+            <input checked={item.completed} type="checkbox" />{" "}
+            <h1>{item.Task}</h1>
+            <p>{item.Notes}</p>
+            <button onClick={() => updateTodo(item.id, item.Task, item.Notes)}>
+              edit
+            </button>
+            <button onClick={() => deleteTodo(item.id)}>delete</button>
+          </>
+        );
+      })} */}
