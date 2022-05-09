@@ -2,6 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore } from "@firebase/firestore";
+import { getStorage } from "firebase/storage";
 
 // What I will need from firebase:
 // 1. Firebase Auth - google auth
@@ -28,8 +29,10 @@ const app = initializeApp(firebaseConfig);
 
 // getting auth
 export const auth = getAuth(app);
-
 export const provider = new GoogleAuthProvider();
 
 // getting collection
 export const db = getFirestore(app);
+
+// Getting storage
+export const storage = getStorage(app);

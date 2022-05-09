@@ -1,0 +1,30 @@
+.chat{
+    border:solid 2px;
+    box-shadow:0px 0px 5px black;
+    height:100%;
+    overflow:auto;
+    z-index:999;
+
+}
+
+.chat .reciever, .sender{
+    border: solid;
+    color:var(--TEXT-COLOR);
+}
+
+.sender{
+    border-radius:10px 10px 10px 10px;
+    background-color:var(--PRIMARY-COLOR);
+
+}
+.reciever{
+    border-radius:10px 10px 10px 10px;
+    background-color: var(--SECONDARY-COLOR);
+    
+}
+
+.chat-text p,span{
+    padding: 0px;
+    margin-bottom:10px;
+    text-align: left;
+}

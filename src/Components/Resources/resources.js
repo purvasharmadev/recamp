@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react';
 import { storage } from "../../firebase-config";
 import {ref,uploadBytes,listAll,getDownloadURL} from "firebase/storage";
 import {v4} from "uuid";
-import { db } from "../../firebase-config";
+import { db,auth } from "../../firebase-config";
 import {
   addDoc,
   collection,
@@ -13,7 +13,6 @@ import {
 
 
 function Resources() {
-
     //Link collection ref
     const LinkRef = collection(db, "Link");
     const [ link,setLink]= useState([])
@@ -78,8 +77,6 @@ function Resources() {
 
   return (
     <div className='w-50'>
-      <h1>Resources</h1>
-      <h3>Share Images</h3>
       <input onChange={(event)=>setFile(event.target.files[0])} type="file"/>
       <button onClick={uploadFile}>Upload</button>
       <br/>

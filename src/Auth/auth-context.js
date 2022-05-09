@@ -2,13 +2,11 @@ import { createContext, useContext, useState, useEffect } from "react";
 import { getDataFromLocal } from "../Hooks/useLocalStorage";
 import { auth, provider } from "../firebase-config";
 import { signInWithPopup } from "firebase/auth";
-// firestore
-import { db } from "../firebase-config";
-import { addDoc, collection } from "firebase/firestore";
 
 const AuthContext = createContext();
 
 function AuthProvider({ children }) {
+
   const [userName, setUserName] = useState("");
 
   const [isLoggedIn, setIsLoggedIn] = useState(
@@ -24,6 +22,9 @@ function AuthProvider({ children }) {
       email: "",
     })
   );
+
+
+
 
   const signInWithGoogle = () => {
     signInWithPopup(auth, provider)
@@ -55,6 +56,25 @@ function AuthProvider({ children }) {
         setError("Something Went Wrong! ", error);
       });
   };
+
+  const [initializing, setInitializing] = useState(true);
+const [user, setUser] = useState(() => auth.currentUser);
+
+useEffect(() => {
+  const unsubscribe = auth.onAuthStateChanged(user => {
+    if (user) {
+      setUser(user);
+    } else {
+      setUser(false);
+    }
+    if (initializing) {
+      setInitializing(false);
+    }
+  });
+
+  // Cleanup subscription
+  return unsubscribe;
+}, [initializing]);
 
   useEffect(() => {
     localStorage.setItem("isLoggedIn", JSON.stringify(isLoggedIn));
